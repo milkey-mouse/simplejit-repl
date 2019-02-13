@@ -1,15 +1,15 @@
 [package]
-name = "simplejit-demo"
+name = "simplejit-repl"
 version = "0.0.0"
-authors = ["The Cranelift Project Developers"]
+authors = ["The Cranelift Project Developers", "Milkey Mouse"]
 build = "build.rs"
 license = "Apache-2.0 WITH LLVM-exception"
-repository = "https://github.com/CraneStation/simplejit-demo"
-description = "Toy language implemented using cranelift-simplejit"
+repository = "https://github.com/tachibana-lab/simplejit-repl"
+description = "REPL for a toy language implemented using cranelift-simplejit"
 
 [[bin]]
-name = "toy"
-path = "src/toy.rs"
+name = "repl"
+path = "src/main.rs"
 
 [dependencies]
 cranelift = "0.25.0"
