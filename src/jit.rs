@@ -49,6 +49,17 @@ impl JIT {
         let (name, params, the_return, stmts) =
             parser::function(&input).map_err(|e| e.to_string())?;
 
+        self.compile_from_parsed(name, params, the_return, stmts)
+    }
+
+    /// Compile a parsed function in the toy language into machine code.
+    pub fn compile_from_parsed(
+        &mut self,
+        name: std::string::String,
+        params: std::vec::Vec<std::string::String>,
+        the_return: std::string::String,
+        stmts: std::vec::Vec<Expr>,
+    ) -> Result<*const u8, String> {
         // Then, translate the AST nodes into Cranelift IR.
         self.translate(params, the_return, stmts)
             .map_err(|e| e.to_string())?;

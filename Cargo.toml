@@ -16,6 +16,7 @@ cranelift = "0.25.0"
 cranelift-module = "0.25.0"
 cranelift-simplejit = "0.25.0"
 peg = "0.5.4"
+rustyline = "3.0.0"
 
 [build-dependencies]
 peg = { version = "0.5.4" }
