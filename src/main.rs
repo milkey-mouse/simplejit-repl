@@ -27,7 +27,7 @@ fn main() {
         });
         match readline {
             Ok(line) => {
-                if line == "" {
+                if line.chars().all(char::is_whitespace) {
                     continue;
                 }
 
