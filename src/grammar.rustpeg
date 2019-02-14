@@ -1,18 +1,14 @@
 use super::Expr;
 
 pub function -> (String, Vec<String>, String, Vec<Expr>)
-    = def:function_definition
-      stmts:statements
-      _ "}" _ "\n" _
-      { (def.0, def.1, def.2, stmts) }
-
-pub function_definition -> (String, Vec<String>, String)
     = [ \t\n]* "fn" _ name: identifier _
       "(" params:((_ i:identifier _ {i}) ** ",") ")" _
       "->" _
       "(" returns:(_ i:identifier _ {i}) ")" _
       "{" _ "\n"
-      { (name, params, returns) }
+      stmts:statements
+      _ "}" _ "\n" _
+      { (name, params, returns, stmts) }
 
 statements -> Vec<Expr>
     = s:(statement*) { s }
